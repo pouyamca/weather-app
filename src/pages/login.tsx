@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
-import SearchBar from '../containers/searchBar';
-import ThemeSwicther from '../containers/themeSwicther';
-import WeatherCard from '../containers/WeatherCard';
 
 export const UserLogin = () => {
     const clickBtn = () =>{
@@ -13,10 +10,7 @@ export const UserLogin = () => {
 
 
         <>
-            <ThemeSwicther />
-            <h2 id='top-title'> Weather App </h2> 
-            <SearchBar />
-            <WeatherCard />
+          <h1> login </h1>
         </>
  
 );}
