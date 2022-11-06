@@ -21,6 +21,7 @@ body {
 	align-items: center;
   padding: 2em;
 }
+
 .searchbar-layout{
   display: flex;
 	flex-direction: row;
@@ -33,15 +34,18 @@ body {
   border: none;
   height: 38px;
 }
-.theme-swicther-icon-btn{
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  cursor: pointer;
-}
-.theme-swicther-icon-btn img{
-  height: 24px;
-}
+// .theme-swicther-icon-btn{
+//   background-color: transparent !important;
+//   border: none !important;
+//   border-radius: 0 !important;
+//   cursor: pointer;
+//   img{
+//     height: 24px;
+//   }
+// }
+// .theme-swicther-icon-btn img{
+//   height: 24px;
+// }
 .weather-card-wrapper{
   margin-top: 5em;
   display: flex;
@@ -60,41 +64,58 @@ body {
   
 }
 
-.card-top-bar-layout{
-   height: 20%;
-   max-width: 90%;
-   margin-right: auto;
-   margin-left: auto;
-   border: none;
-   border-bottom: 2px dashed gray;
-}
-.card-body-layout{
-  height: 60%;
-  max-width: 90%;
-  padding: 1em;
+$borders:2px dashed gray;
+
+@mixin diver($height, $width) {
+  
+  height: $height;
+  max-width: $width;
   margin-right: auto;
   margin-left: auto;
   border: none;
 }
+.card-top-bar-layout{
+  @include diver( 20%, 90%);
+  //  height: 20%;
+  //  max-width: 90%;
+  //  margin-right: auto;
+  //  margin-left: auto;
+  //  border: none;
+   border-bottom: $borders;
+}
+
+.card-body-layout{
+  @include diver( 60%, 90%);
+  // height: 60%;
+  // max-width: 90%;
+  padding: 1em;
+  // margin-right: auto;
+  // margin-left: auto;
+  // border: none;
+}
 .card-footer-layout{
+  @include diver( 20%, 90%);
   padding-top: 10px;
   padding-left: auto;
   padding-right: auto;
-  height: 20%;
-  max-width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  border: none;
-  border-top: 2px dashed gray;
+ // height: 20%;
+ // max-width: 90%;
+//  margin-right: auto;
+ // margin-left: auto;
+ // border: none;
+  border-top: $borders;
 }
 .search-icon-btn{
   background-color: white !important;
   border: none !important;
   border-radius: 0 !important;
+  img{
+    height: 24px;
+  }
 }
-.search-icon-btn img{
-  height: 24px;
-}
+// .search-icon-btn img{
+//   height: 24px;
+// }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
