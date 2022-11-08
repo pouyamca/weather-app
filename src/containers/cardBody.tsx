@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
  
 import { Button, Col, Row, Stack } from 'react-bootstrap';
-i 
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { GetCurrent } from '../store/Actions';
-import moment from 'moment';
 
 
 export const CardBody = () => {
@@ -13,7 +12,7 @@ export const CardBody = () => {
     let cityLat  = useSelector((state: any) => state.data.cityLat)
     let cityLong = useSelector((state: any) => state.data.cityLong)
     let status = useSelector((state: any) => state.data.currentStatus)
-
+    let forecastStatus = useSelector((state: any) => state.data.forecast)
    
 
     useEffect(()=>{ 
@@ -47,8 +46,17 @@ export const CardBody = () => {
                         </Col>
                         
                         <Col>
-                            <div className="h-100 w-75 d-flex  align-items-center justify-content-center ">
-                                 <img src={status?.icon}  className=""/> 
+                            <div className="h-100 w-75 d-flex flex-column  align-items-center justify-content-center ">
+                                 
+                                <h6>
+                                   humidity: {status?.humidity}
+                                </h6>
+                                <h6>
+                                   wind:   {status?.wind}
+                                </h6>
+                                <h6>
+                                    {status?.timer}
+                                </h6>
                             </div>
                             
                         </Col>
@@ -56,14 +64,22 @@ export const CardBody = () => {
                         <Col>
                             <div className="h-100 w-100 d-flex flex-column align-items-center justify-content-center ">
                                 <h6>
-                                humidity: {status?.humidity}
+                                    foreacast
+                                </h6>
+                                <img src={forecastStatus?.icon}  />
+                                <h6>
+                                     {forecastStatus?.timer}
                                 </h6>
                                 <h6>
-                                wind:   {status?.wind}
+                                   temp:  {forecastStatus?.temp}
+                                </h6> 
+                                <h6>
+                                   humidity: {forecastStatus?.humidity}
                                 </h6>
                                 <h6>
-                                    {status?.timer}
+                                   wind:   {forecastStatus?.wind}
                                 </h6>
+                                
                             </div>
                             
                         </Col>

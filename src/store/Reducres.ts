@@ -12,12 +12,14 @@ import {
     GET_FUTURE_WEATHER_STATUS_FAILURE,
     GET_CURRENT_CITY_SUCCESS,
     GET_CURRENT_CITY_FAILUE,
-    SET_SELECTED_CITY
+    SET_SELECTED_CITY,
+    SET_SELECTED_DATA_FORECAST
 } from './Types';
 
 const initialState = {
 
-    forecastStatus:{},  
+    forecastStatus:[],  
+    forecast: {},
     currentStatus:{},
     currentStatusLoading: false,
     forecastStatusLoading: false,
@@ -107,6 +109,11 @@ switch (action.type) {
                 cityLat: action.cityObj.lat,
                 cityLong: action.cityObj.lon,
         }; 
+     case SET_SELECTED_DATA_FORECAST:
+                return {
+                        ...state,
+                        forecast: action.itemData
+                }; 
     default:
            return state
 }

@@ -7,7 +7,6 @@ export const timer = (ms: number | undefined) => new Promise(res => setTimeout(r
 export const callGetWithQueryString =  async (queryString: string) => {
      
    try{
-
         const res = await baseAxiosInstance.get(queryString+'&APPID='+appId)
         if(res.data){ return res }
 

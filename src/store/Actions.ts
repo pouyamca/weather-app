@@ -11,10 +11,11 @@ import {
     GET_FUTURE_WEATHER_STATUS_SUCCESS,
     GET_FUTURE_WEATHER_STATUS_FAILURE,
     SET_SELECTED_CITY,
+    SET_SELECTED_DATA_FORECAST
     
 } from './Types';
 
-import {callGetWithQueryString} from '../service/GetApi'
+import {callGetWithQueryString} from '../service/CallGetMethod'
 import moment from 'moment';
  
  
@@ -66,9 +67,9 @@ export const GetCurrent = (city: string) => {
                         let ico = current.data?.weather[0].icon
                        
                       
-                       let formatted = moment.unix(current.data?.dt).format("MMMM Do YYYY, h:mm:ss a");
-                       let res={"temp": current.data.main.temp , "icon": 'http://openweathermap.org/img/wn/'+ico+'.png' ,  "timerUnix": current.data.dt, "timer": formatted, "humidity": current.data.main.humidity,  "temp_min": current.data.main.temp_min, "temp_max": current.data.main.temp_max, "wind": current.data.wind.speed }
-                         dispatch({ type: GET_CURRENT_WEATHER_STATUS_SUCCESS, res });
+                        let formatted = moment.unix(current.data?.dt).format("MMMM Do YYYY, h:mm:ss a");
+                        let res={"temp": current.data.main.temp , "icon": 'http://openweathermap.org/img/wn/'+ico+'.png' ,  "timerUnix": current.data.dt, "timer": formatted, "humidity": current.data.main.humidity,  "temp_min": current.data.main.temp_min, "temp_max": current.data.main.temp_max, "wind": current.data.wind.speed }
+                        dispatch({ type: GET_CURRENT_WEATHER_STATUS_SUCCESS, res });
                      }
                 
            },
@@ -90,11 +91,31 @@ export const GetForecast = (city: string) => {
          dispatch({ type: GET_FUTURE_WEATHER_STATUS, city });
 
          callGetWithQueryString(city).then(
-            forecast => {  
-                if(forecast.status !== 200) {  
-                    dispatch(ErrorHandler(forecast)) 
+            res => {  
+                if(res.status !== 200) {  
+                    dispatch(ErrorHandler(res)) 
                 }else{
-                    dispatch({ type: GET_FUTURE_WEATHER_STATUS_SUCCESS, forecast });
+                   let tempArr: any[] = res.data.list
+                   let final: any[]
+                    for(let i=0 ; i< tempArr.length; i+8){
+                        let tempObj: any = {}
+                        let ico = tempArr[i]?.weather[0].icon
+
+                        tempObj.timerUnix = tempArr[i]?.dt;
+                        tempObj.timer = tempArr[i]?.dt_txt;
+                        tempObj.temp = tempArr[i]?.main.temp;
+                        tempObj.icon = 'http://openweathermap.org/img/wn/'+ico+'.png'
+                        tempObj.humidity = tempArr[i]?.main.humidity;
+                        tempObj.temp_min = tempArr[i]?.main.temp_min;
+                        tempObj.temp_max = tempArr[i]?.main.temp_max;
+                        tempObj.wind = tempArr[i]?.wind.speed;
+
+                        final.push(tempObj)
+
+                    }
+
+                   
+                    dispatch({ type: GET_FUTURE_WEATHER_STATUS_SUCCESS, final });
                 } 
             },
             error => { 
@@ -111,6 +132,10 @@ export const GetForecast = (city: string) => {
  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 export const SetCityName = (cityObj: {name: string, lat: string, long: string}) => {
     return { type: SET_SELECTED_CITY, cityObj}
+}
+
+export const forecastSelectedItem = (itemData: {}) => {
+    return { type: SET_SELECTED_DATA_FORECAST, itemData}
 }
 
 export const ShowSnackbar = (message: any) => {

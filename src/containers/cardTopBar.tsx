@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux';
 
 export const CardTopBar = () => {
     let city = useSelector((state: any) => state.data.city)
-  
+    let status = useSelector((state: any) => state.data.currentStatus)
+
 
     
     return(
@@ -15,11 +16,19 @@ export const CardTopBar = () => {
 
         <>
             <div className='card-top-bar-layout'>
-                <div className="d-flex justify-content-start">
-                            <div className="h-100 w-25 mt-4 d-flex align-items-center justify-content-center ">
+                <div className="d-flex flex-row justify-content-between">
+                            <div className="h-100 w-25 mt-4 d-flex align-items-center justify-content-center" >
                                 <h4>
                                     {city} 
                                 </h4>
+                            </div>
+                            <div className="h-100 w-25 d-flex align-items-center justify-content-center" >
+                                  <img src={status?.icon}  /> 
+                            </div>
+                            <div className="h-100 w-25 mt-4 d-flex align-items-center justify-content-center" >
+                               <h6>
+                                    {status?.timer}
+                                </h6>
                             </div>
                            
                 </div> 
