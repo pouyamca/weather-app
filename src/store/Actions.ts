@@ -67,7 +67,7 @@ export const GetCurrent = (city: string) => {
                        
                       
                        let formatted = moment.unix(current.data?.dt).format("MMMM Do YYYY, h:mm:ss a");
-                       let res={"temp": current.data.main.temp , "icon": 'http://openweathermap.org/img/wn/'+ico+'.png' , "timer": formatted, "humidity": current.data.main.humidity,  "temp_min": current.data.main.temp_min, "temp_max": current.data.main.temp_max}
+                       let res={"temp": current.data.main.temp , "icon": 'http://openweathermap.org/img/wn/'+ico+'.png' ,  "timerUnix": current.data.dt, "timer": formatted, "humidity": current.data.main.humidity,  "temp_min": current.data.main.temp_min, "temp_max": current.data.main.temp_max, "wind": current.data.wind.speed }
                          dispatch({ type: GET_CURRENT_WEATHER_STATUS_SUCCESS, res });
                      }
                 

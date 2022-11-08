@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+ 
 import { Button, Col, Row, Stack } from 'react-bootstrap';
-import seasrcIcon from '../assets/icons/search.png'
-import weatherIcon from '../assets/icons/windy.png'
+i 
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { GetCurrent } from '../store/Actions';
@@ -10,33 +9,17 @@ import moment from 'moment';
 
 
 export const CardBody = () => {
-    const dispatch: Dispatch<any> = useDispatch()
-    const [icon, setIcon] = useState('http://openweathermap.org/img/wn/01d.png')
-    const [dates, setDates] = useState<any>('')
+    const dispatch: Dispatch<any> = useDispatch() 
     let cityLat  = useSelector((state: any) => state.data.cityLat)
     let cityLong = useSelector((state: any) => state.data.cityLong)
     let status = useSelector((state: any) => state.data.currentStatus)
 
    
 
-    useEffect(()=>{
- 
-            //  let temp = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute:'2-digit' }).format(status?.dt)
-            //   setDates( temp ) 
-        
-
-         
-         
-            //     console.log(status?.weather?.iocn)
-                //setIcon('http://openweathermap.org/img/wn/'+status?.weather[0]?.iocn+'.png')
-           
-
-
-       // if(cityLat !== '' && cityLong !== ''){
+    useEffect(()=>{ 
             let querytString = '/data/2.5/weather?lat='+cityLat+'&lon='+cityLong+'&units=metric';
-              dispatch(GetCurrent(querytString))
-       // }
-        
+            dispatch(GetCurrent(querytString))
+     
     },[cityLat, cityLong])
 
 
@@ -72,6 +55,12 @@ export const CardBody = () => {
 
                         <Col>
                             <div className="h-100 w-100 d-flex flex-column align-items-center justify-content-center ">
+                                <h6>
+                                humidity: {status?.humidity}
+                                </h6>
+                                <h6>
+                                wind:   {status?.wind}
+                                </h6>
                                 <h6>
                                     {status?.timer}
                                 </h6>
