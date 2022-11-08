@@ -30,9 +30,33 @@ body {
 	align-items: center;
 }
 .search-text-input{
-  width: 50vw;
+  width: 100%;
   border: none;
   height: 38px;
+  
+}
+
+.searchbar-wrapper{
+  display: flex;
+	flex-direction: column;
+  width: 50vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+.inside {
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+	flex-direction: column;
+  width: 100%; 
+  min-height: 40px;
+  max-height: 100px;
+  
+  background-color: rgb(228, 228, 228);
+}
+.customItem{
+  border-radius: 0 !important;
+  border-bottom: 1px solid gray !important;
 }
 // .theme-swicther-icon-btn{
 //   background-color: transparent !important;
