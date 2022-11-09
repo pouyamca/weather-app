@@ -95,10 +95,11 @@ export const GetForecast = (city: string) => {
                 if(res.status !== 200) {  
                     dispatch(ErrorHandler(res)) 
                 }else{
-                    console.log(res.data)
+                   
                    let tempArr: any[] = res.data.list
+                  
                    let final: any[] = []
-                    for(let i=0 ; i< tempArr.length; i+8){
+                     for(let i=0 ; i< tempArr.length; i+=8){
                         let tempObj: any = {}
                         let ico = tempArr[i]?.weather[0].icon
 
@@ -110,11 +111,11 @@ export const GetForecast = (city: string) => {
                         tempObj.temp_min = tempArr[i]?.main.temp_min;
                         tempObj.temp_max = tempArr[i]?.main.temp_max;
                         tempObj.wind = tempArr[i]?.wind.speed;
-
-                        final.push({tempObj})
+                        
+                          final.push(tempObj)
 
                     }
-
+                  
                    
                     dispatch({ type: GET_FUTURE_WEATHER_STATUS_SUCCESS, final });
                 } 

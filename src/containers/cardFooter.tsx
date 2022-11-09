@@ -27,7 +27,7 @@ export const CardFooter = () => {
         dispatch(forecastSelectedItem(tempItem))
     }
  
-    console.log(forecast)
+    
 
     return (
  
@@ -35,18 +35,15 @@ export const CardFooter = () => {
               
                  <ButtonGroup aria-label="Basic example">
 
-                 {forecast.map((item: any)=>{
-                        <Button variant="outline-secondary" onClick={(e: btnEventType) => {dayClickBtnHandler(e, item.dt)}}>{item.dt_txt} </Button>
-                    }
-                   )
-                  }
-                        {/* <Button variant="outline-secondary">today</Button>
-                        <Button variant="outline-secondary">2-2-2</Button>
-                        <Button variant="outline-secondary">3-3-3</Button>
-                        <Button variant="outline-secondary">4-4-4</Button>
-                        <Button variant="outline-secondary">5-5-5</Button>
-                        <Button variant="outline-secondary">6-6-6</Button>
-                        <Button variant="outline-secondary">7-7-7</Button> */}
+                  {forecast.map((item: any)=>{
+                         return(
+                            
+
+                                  <Button variant="outline-secondary" key={item.timerUnix} onClick={(e: btnEventType) => dayClickBtnHandler(e, item.timerUnix) }>{item.timer} </Button>
+                        )
+                    })
+                  }  
+                       
                 </ButtonGroup>
  
             </div>

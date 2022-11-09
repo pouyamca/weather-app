@@ -77,7 +77,7 @@ switch (action.type) {
             return {
                     ...state,
                     forecastStatusLoading: false,
-                    forecastStatus: action.forecast 
+                    forecastStatus: action.final 
             };
     case GET_FUTURE_WEATHER_STATUS_FAILURE:
 
