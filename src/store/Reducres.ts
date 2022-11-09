@@ -25,9 +25,9 @@ const initialState = {
     forecastStatusLoading: false,
     cityStatusLoading: false,
     cities: [],
-    city: '',
-    cityLat: '',
-    cityLong: '',
+    city: 'Tehran',
+    cityLat: '37.6691342',
+    cityLong: '38.1468259',
     SnackbarShow: false ,
     errorMessage: ''
 

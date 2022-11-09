@@ -26,6 +26,8 @@ export const CardFooter = () => {
         let tempItem =  forecast.find(item => item.timer === selectedTime)
         dispatch(forecastSelectedItem(tempItem))
     }
+ 
+    console.log(forecast)
 
     return (
  
@@ -33,7 +35,7 @@ export const CardFooter = () => {
               
                  <ButtonGroup aria-label="Basic example">
 
-                 {forecast.items.map((item: any)=>{
+                 {forecast.map((item: any)=>{
                         <Button variant="outline-secondary" onClick={(e: btnEventType) => {dayClickBtnHandler(e, item.dt)}}>{item.dt_txt} </Button>
                     }
                    )
