@@ -11,6 +11,7 @@ body {
    background-image: url("../public/backg.jpg"); 
    background-size: cover;
    background-repeat: no-repeat; 
+   background-position: center;
    height: 100vh;
 }
 #top-title{
@@ -82,7 +83,7 @@ body {
 .weather-card-layout{
   min-width: 52vw;
   max-width: 80%;
-  height: 45vh;
+  min-height: 45vh;
   border-radius: .2rem;
   background-color: rgba(255, 255, 255, 0.7);
   

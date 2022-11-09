@@ -34,7 +34,7 @@ export const CardFooter = () => {
  
             <div className='card-footer-layout'>
               
-                 <ButtonGroup aria-label="Basic example">
+                 <ButtonGroup className='btn-group flex-wrap' aria-label="Basic example">
 
                   {forecast.map((item: any)=>{
                          return(

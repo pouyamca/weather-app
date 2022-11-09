@@ -10,14 +10,7 @@ type textEventType = React.ChangeEvent<HTMLInputElement>;
 type formChangeType = React.FormEvent<HTMLInputElement>;
 type btnEventType = React.MouseEvent<HTMLButtonElement>;
 
-const mocks = [
-    {"name": "iran", "key": "iran"},
-    {"name": "usa", "key": "usa"},
-    {"name": "uae", "key": "uae"},
-    {"name": "usa2", "key": "usa2"},
-    {"name": "uae2", "key": "uae2"}
-]
-
+ 
 
 
 

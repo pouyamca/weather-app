@@ -28,7 +28,7 @@ export const CardBody = () => {
         <>
             <div className='card-body-layout'>
                     <Row className="h-100 p-2">
-                        <Col>
+                        <Col  xs={12} md={4}>
                             <div className="h-100 w-75 d-flex flex-column align-items-center justify-content-center ">
                                 <h6 style={{color: 'red'}}>
                                     {status?.temp_max}
@@ -45,7 +45,7 @@ export const CardBody = () => {
                             
                         </Col>
                         
-                        <Col>
+                        <Col  xs={12} md={4}>
                             <div className="h-100 w-75 d-flex flex-column  align-items-center justify-content-center ">
                                  
                                 <h6>
@@ -61,7 +61,7 @@ export const CardBody = () => {
                             
                         </Col>
 
-                        <Col>
+                        <Col  xs={12} md={4}>
                             <div className="h-100 w-100 d-flex flex-column align-items-center justify-content-center ">
                                 <h6>
                                     foreacast
