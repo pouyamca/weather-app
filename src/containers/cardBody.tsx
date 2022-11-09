@@ -13,13 +13,15 @@ export const CardBody = () => {
     let cityLong = useSelector((state: any) => state.data.cityLong)
     let status = useSelector((state: any) => state.data.currentStatus)
     let forecastStatus = useSelector((state: any) => state.data.forecast)
-   
+    const [timeOut, setTimeOut] = useState<number>(0);
 
     useEffect(()=>{ 
+            setInterval(() =>setTimeOut(Date.now()), 30000);
+
             let querytString = '/data/2.5/weather?lat='+cityLat+'&lon='+cityLong+'&units=metric';
             dispatch(GetCurrent(querytString))
-     
-    },[cityLat, cityLong])
+ 
+        },[cityLat, cityLong, timeOut])
 
 
     return(
