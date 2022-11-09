@@ -45,6 +45,9 @@ body {
   width: 50vw;
   margin-right: auto;
   margin-left: auto;
+  @media screen and (max-width: 400px) {
+    width: 90vw;
+  }
 }
 .inside {
   overflow-y: auto;
@@ -74,10 +77,13 @@ body {
 .weather-card-layout{
   min-width: 52vw;
   max-width: 80%;
-  min-height: 48vh;
+  min-height: 50vh;
   border-radius: .2rem;
   background-color: rgba(255, 255, 255, 0.7);
   
+  @media screen and (min-width: 1600px) {
+    min-height: 43vh;
+  }
 }
 
 $borders:2px dashed gray;
@@ -115,9 +121,7 @@ $borders:2px dashed gray;
     height: 24px;
   }
 }
-// .search-icon-btn img{
-//   height: 24px;
-// }
+ 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

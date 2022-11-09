@@ -29,7 +29,7 @@ export const CardBody = () => {
             <div className='card-body-layout'>
                     <Row className="h-100 p-2">
                         <Col  xs={12} md={4}>
-                            <div className="h-100 w-75 d-flex flex-column align-items-center justify-content-center ">
+                            <div className="h-100 w-75 d-flex flex-column align-items-start justify-content-center ">
                                 <h6 style={{color: 'red'}}>
                                     {status?.temp_max}
                                 </h6>
