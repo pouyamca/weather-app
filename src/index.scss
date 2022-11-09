@@ -12,7 +12,9 @@ body {
    background-size: cover;
    background-repeat: no-repeat; 
    background-position: center;
-   height: 100vh;
+   background-attachment: scroll;
+   min-height: 100vh;
+   height: 100%;
 }
 #top-title{
   display: flex;
@@ -59,18 +61,7 @@ body {
   border-radius: 0 !important;
   border-bottom: 1px solid gray !important;
 }
-// .theme-swicther-icon-btn{
-//   background-color: transparent !important;
-//   border: none !important;
-//   border-radius: 0 !important;
-//   cursor: pointer;
-//   img{
-//     height: 24px;
-//   }
-// }
-// .theme-swicther-icon-btn img{
-//   height: 24px;
-// }
+ 
 .weather-card-wrapper{
   margin-top: 5em;
   display: flex;
@@ -83,7 +74,7 @@ body {
 .weather-card-layout{
   min-width: 52vw;
   max-width: 80%;
-  min-height: 45vh;
+  min-height: 48vh;
   border-radius: .2rem;
   background-color: rgba(255, 255, 255, 0.7);
   
@@ -101,33 +92,19 @@ $borders:2px dashed gray;
 }
 .card-top-bar-layout{
   @include diver( 20%, 90%);
-  //  height: 20%;
-  //  max-width: 90%;
-  //  margin-right: auto;
-  //  margin-left: auto;
-  //  border: none;
    border-bottom: $borders;
 }
 
 .card-body-layout{
   @include diver( 60%, 90%);
-  // height: 60%;
-  // max-width: 90%;
   padding: 1em;
-  // margin-right: auto;
-  // margin-left: auto;
-  // border: none;
+ 
 }
 .card-footer-layout{
   @include diver( 20%, 90%);
   padding-top: 10px;
   padding-left: auto;
   padding-right: auto;
- // height: 20%;
- // max-width: 90%;
-//  margin-right: auto;
- // margin-left: auto;
- // border: none;
   border-top: $borders;
 }
 .search-icon-btn{

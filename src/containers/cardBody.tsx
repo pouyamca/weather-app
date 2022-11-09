@@ -46,8 +46,10 @@ export const CardBody = () => {
                         </Col>
                         
                         <Col  xs={12} md={4}>
-                            <div className="h-100 w-75 d-flex flex-column  align-items-center justify-content-center ">
-                                 
+                            <div className="h-100 w-100 d-flex flex-column  align-items-start justify-content-between ">
+                                <h3 className='text-warning'>
+                                    today
+                                </h3>
                                 <h6>
                                    humidity: {status?.humidity}
                                 </h6>
@@ -62,10 +64,10 @@ export const CardBody = () => {
                         </Col>
 
                         <Col  xs={12} md={4}>
-                            <div className="h-100 w-100 d-flex flex-column align-items-center justify-content-center ">
-                                <h6>
+                            <div className="h-100 w-100 d-flex flex-column align-items-start justify-content-center ">
+                                <h3 className='text-primary'>
                                     foreacast
-                                </h6>
+                                </h3>
                                 <img src={forecastStatus?.icon}  />
                                 <h6>
                                      {forecastStatus?.timer}
