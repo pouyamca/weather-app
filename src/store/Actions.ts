@@ -104,7 +104,10 @@ export const GetForecast = (city: string) => {
                         let ico = tempArr[i]?.weather[0].icon
 
                         tempObj.timerUnix = tempArr[i]?.dt;
-                        tempObj.timer = tempArr[i]?.dt_txt;
+                       
+                        var arr = tempArr[i]?.dt_txt.match(/^(.{0,11})/g) || [""];  
+                        tempObj.timer = arr[0];
+                        
                         tempObj.temp = tempArr[i]?.main.temp;
                         tempObj.icon = 'http://openweathermap.org/img/wn/'+ico+'.png'
                         tempObj.humidity = tempArr[i]?.main.humidity;
@@ -116,8 +119,9 @@ export const GetForecast = (city: string) => {
 
                     }
                   
-                   
+                   let firstObject = final[0]
                     dispatch({ type: GET_FUTURE_WEATHER_STATUS_SUCCESS, final });
+                    dispatch({ type: SET_SELECTED_DATA_FORECAST, firstObject})
                 } 
             },
             error => { 
@@ -136,8 +140,8 @@ export const SetCityName = (cityObj: {name: string, lat: string, long: string}) 
     return { type: SET_SELECTED_CITY, cityObj}
 }
 
-export const forecastSelectedItem = (itemData: {}) => {
-    return { type: SET_SELECTED_DATA_FORECAST, itemData}
+export const forecastSelectedItem = (firstObject: {}) => {
+    return { type: SET_SELECTED_DATA_FORECAST, firstObject}
 }
 
 export const ShowSnackbar = (message: any) => {

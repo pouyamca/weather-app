@@ -110,9 +110,10 @@ switch (action.type) {
                 cityLong: action.cityObj.lon,
         }; 
      case SET_SELECTED_DATA_FORECAST:
+        
                 return {
                         ...state,
-                        forecast: action.itemData
+                        forecast: action.firstObject
                 }; 
     default:
            return state

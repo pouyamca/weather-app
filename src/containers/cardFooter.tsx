@@ -18,12 +18,13 @@ export const CardFooter = () => {
 
     useEffect(()=>{ 
         let querytString = '/data/2.5/forecast?lat='+cityLat+'&lon='+cityLong+'&units=metric';
-        dispatch(GetForecast(querytString))
+        dispatch(GetForecast(querytString)) 
   
     },[cityLat, cityLong])
 
     const dayClickBtnHandler = (e: btnEventType, selectedTime: number | string ) =>{
-        let tempItem =  forecast.find(item => item.timer === selectedTime)
+        let tempItem =  forecast.find(item => item.timerUnix === selectedTime)
+         
         dispatch(forecastSelectedItem(tempItem))
     }
  
@@ -37,9 +38,7 @@ export const CardFooter = () => {
 
                   {forecast.map((item: any)=>{
                          return(
-                            
-
-                                  <Button variant="outline-secondary" key={item.timerUnix} onClick={(e: btnEventType) => dayClickBtnHandler(e, item.timerUnix) }>{item.timer} </Button>
+                              <Button variant="outline-secondary" key={item.timerUnix} onClick={(e: btnEventType) => dayClickBtnHandler(e, item.timerUnix) }>{item.timer} </Button>
                         )
                     })
                   }  
